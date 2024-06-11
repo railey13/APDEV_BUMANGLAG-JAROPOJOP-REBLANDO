@@ -59,6 +59,32 @@ public class GestureManager : MonoBehaviour
         }
        
     }
+
+    private void EndDrag()
+    {
+        Vector2 position = this.trackedFinger.position;
+        GameObject hitObject = OnHitObject(position);
+        DragEventArgs args = new DragEventArgs(this.trackedFinger, hitObject);
+        Debug.Log(hitObject);
+
+        if (this.OnDrag != null)
+        {
+
+            this.OnDrag(this, args);
+        }
+
+        if (hitObject != null)
+        {
+
+            IDraggable handler = hitObject.GetComponent<IDraggable>();
+            if (handler != null)
+            {
+                handler.OnRelease(args);
+            }
+
+        }
+    }
+
     private void CheckSwipe()
     {
         if (this.gestureTime <= this.swipeProperty.Time && Vector2.Distance(this.startPoint, this.endPoint) >= this.swipeProperty.MinDistance * Screen.dpi)
