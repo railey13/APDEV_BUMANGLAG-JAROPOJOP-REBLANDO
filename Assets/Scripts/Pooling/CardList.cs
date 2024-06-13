@@ -7,6 +7,7 @@ public class CardList : MonoBehaviour
 {
     [SerializeField] private List<Material> materials = new List<Material>();
     private List<Material> usedMaterials = new List<Material>();
+    private List<Material> inCardList = new List<Material>();
 
     private int index = 0;
     public Material CardSelector() {
@@ -14,6 +15,7 @@ public class CardList : MonoBehaviour
         Material matHolder = materials[i];
 
         this.usedMaterials.Add(matHolder);
+        this.inCardList.Add(matHolder);
 
         this.materials.Remove(matHolder);
 
@@ -24,6 +26,16 @@ public class CardList : MonoBehaviour
 
     public int Order() {
         return index;
+    }
+
+    private void Update() {
+        if(this.index == 52) {
+            this.gameObject.SetActive(false);
+        }
+    }
+
+    public void ReShuffle() {
+
     }
 
 }
