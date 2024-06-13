@@ -70,13 +70,12 @@ public class SpawnHandler : MonoBehaviour, ITappable, ISwipeable, IDraggable
     {
         Destroy(this.gameObject);
     }
-
+     
     public void OnSwipe(SwipeEventArgs args)
     {
         
        
-        if (args.Direction == ESwipeDirection.LEFT || args.Direction == ESwipeDirection.RIGHT
-            || args.Direction == ESwipeDirection.UP || args.Direction == ESwipeDirection.DOWN)
+        if (args.Direction == ESwipeDirection.RIGHT)
         {
             type = 0;
         }
@@ -95,6 +94,7 @@ public class SpawnHandler : MonoBehaviour, ITappable, ISwipeable, IDraggable
                 this.MoveDiagonal(args);
                 break;
         }
+     
         
     }
     // Start is called before the first frame update
