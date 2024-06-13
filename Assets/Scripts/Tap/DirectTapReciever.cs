@@ -5,7 +5,12 @@ using UnityEngine;
 public class DirectTapReciever : MonoBehaviour, ITappable
 {
     [SerializeField] private GameObjectPool CardPool;
+
+    void Start() {
+        this.CardPool.Initialize();
+    }
     private void RequestPoolable() {
+ 
         if (this.CardPool.HasObjectAvailable(1)) {
             this.CardPool.RequestPoolable();
         }

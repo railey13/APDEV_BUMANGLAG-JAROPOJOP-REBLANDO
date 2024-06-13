@@ -9,8 +9,6 @@ public class Tap : MonoBehaviour
     {
         if(args.HitObject == null)
         {
-            Debug.Log("Spawning Object");
-
             Ray ray = Camera.main.ScreenPointToRay(args.Position);
 
             Instantiate(copy, ray.GetPoint(10), Quaternion.identity);
