@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -71,6 +72,23 @@ public class GameObjectPool : MonoBehaviour {
 		poolableObject.Release ();
 		poolableObject.gameObject.SetActive (false);
 		this.availableObjects.Add (poolableObject);
+	}
+
+	public void ReleasePoolableBatch(int size) {
+        if (size <= this.usedObjects.Count) {
+            for (int i = 0 ; i < size; i++) {
+				APoolable pObject = this.usedObjects[i];
+				pObject.Release ();
+
+				pObject.gameObject.SetActive (false);
+				this.availableObjects.Add (pObject);
+                
+            }
+        }
+		else {
+			Debug.Log("Trying to Release Poolable Objects More Than Used Objects Amount: " + this.usedObjects.Count);
+			return;
+		}
 	}
 
 }

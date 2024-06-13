@@ -24,6 +24,7 @@ public class CardPoolable : APoolable{
     }
 
     public override void Initialize() {
+
     }
     public override void OnActivate() {
         this.SetCard();

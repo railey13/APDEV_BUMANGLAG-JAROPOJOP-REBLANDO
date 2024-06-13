@@ -763,6 +763,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8537d7c883cb98b47be60cc53620b496, type: 2}
   - {fileID: 2100000, guid: a1c6b15aa90d70243a89eaaf7b2976db, type: 2}
   - {fileID: 2100000, guid: 38bfdbc2a8699264789ad2272034de94, type: 2}
+  usedMaterials: []
+  inCardList: []
 --- !u!1 &1550329740
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,6 +886,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69fba7b8c3d123f4a80116a7ac32c762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CardList: {fileID: 1402985813}
+  CardPool: {fileID: 1402985812}
 --- !u!1 &1694427391
 GameObject:
   m_ObjectHideFlags: 0
