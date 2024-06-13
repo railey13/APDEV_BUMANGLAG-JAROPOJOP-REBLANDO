@@ -122,7 +122,6 @@ public class GestureManager : MonoBehaviour
 
     private void FireTapEvent()
     {
-
         GameObject hitObject = OnHitObject(this.startPoint);
 
         TapEventArgs args = new TapEventArgs(this.startPoint, hitObject);
@@ -135,9 +134,7 @@ public class GestureManager : MonoBehaviour
                 handler.OnTap(args);
             }
         }
-
-           
-            
+     
         
         if (this.OnTap != null)
         {
