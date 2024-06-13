@@ -78,14 +78,14 @@ public class CardHandler : MonoBehaviour, ISwipeable
                 docked = clubDock.GetComponent<DockHandler>();
                 break;
             case 4:
-                docked = diamondDock.GetComponent<DockHandler>();
+                docked = spadeDock.GetComponent<DockHandler>();
                 break;
             default:
-                docked = heartDock.GetComponent<DockHandler>();
+                docked = null;
                 break;
 
         }
-        int end = docked.DockedCards.Count ;
+        int end = docked.DockedCards.Count;
         
         if (end == 0 && suitValue == 1)
         {
@@ -102,7 +102,8 @@ public class CardHandler : MonoBehaviour, ISwipeable
                 return true;
             }
         }
-        
+        Debug.Log(suitValue);
+        Debug.Log(end);
         Debug.Log("nope");
         return false;
     }
@@ -153,8 +154,7 @@ public class CardHandler : MonoBehaviour, ISwipeable
         }
         string valTest = cardName.Substring(1);
         suitValue = Convert.ToInt32(valTest);
-        Debug.Log(suitType);
-        Debug.Log(suitValue);
+       
     }
 
 
