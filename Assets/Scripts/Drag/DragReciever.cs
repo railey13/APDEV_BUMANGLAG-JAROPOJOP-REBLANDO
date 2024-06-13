@@ -9,7 +9,7 @@ public class DragReciever : MonoBehaviour
     
     public void OnDrag(object sender,DragEventArgs arg)
     {
-        Debug.Log("Pick Me Up!");
+        //Debug.Log("Pick Me Up!");
     }
     void Start()
     {
