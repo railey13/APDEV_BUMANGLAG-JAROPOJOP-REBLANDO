@@ -41,7 +41,7 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable
         Debug.Log("Released!");
         Vector3 zOffset = new Vector3(0, 0, +4.0f);
         this.targetPosition += zOffset;
-        this.gameObject.transform.position += zOffset;
+        //this.gameObject.transform.position += zOffset;
     }
 
     private void MoveRight(SwipeEventArgs args)
