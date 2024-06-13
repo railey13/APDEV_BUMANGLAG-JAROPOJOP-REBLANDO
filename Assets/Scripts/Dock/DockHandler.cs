@@ -12,9 +12,14 @@ public class DockHandler : MonoBehaviour
         get { return dockedCards; }
     }
 
+    public  void Adding(int card)
+    {
+        dockedCards.Add(card);
+    }
+
     void Start()
     {
-        dockedCards.Add(2);
+        
     }
 
     // Update is called once per frame
