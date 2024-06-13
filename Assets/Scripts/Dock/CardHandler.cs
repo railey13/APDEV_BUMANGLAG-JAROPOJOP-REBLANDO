@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CardHandler : MonoBehaviour, ISwipeable, IDraggable
@@ -11,6 +13,7 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable
     private GameObject diamondDock;
     private GameObject clubDock;
     private GameObject spadeDock;
+    private Renderer card;
 
     public int suitValue = 1;
     public int suitType = 1;
@@ -152,12 +155,42 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable
         this.targetPosition = this.transform.position;
         //use update to slowly move it.
     }
+
+    public void NameGetter(string name)
+    {
+        string cardName = name;
+        cardName = "H5";
+        char nametest = cardName[0];
+        switch (nametest)
+        {
+            case 'H':
+                suitType = 1;
+                break;
+            case 'D':
+                suitType = 2;
+                break;
+            case 'C':
+                suitType = 3;
+                break;
+            case 'S':
+                suitType = 4;
+                break;
+        }
+        string valTest = cardName.Substring(1);
+        suitValue = Convert.ToInt32(valTest);
+        Debug.Log(suitType);
+        Debug.Log(suitValue);
+    }
+
+
     void Start()
     {
         heartDock = GameObject.Find("HeartDock");
         diamondDock = GameObject.Find("DiamondDock");
         clubDock = GameObject.Find("ClubDock");
         spadeDock = GameObject.Find("SpadeDock");
+     
+        
     }
 
     // Update is called once per frame
