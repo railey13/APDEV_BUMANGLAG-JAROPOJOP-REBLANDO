@@ -38,7 +38,7 @@ public class GestureManager : MonoBehaviour
         Vector2 position = this.trackedFinger.position;
         GameObject hitObject = OnHitObject(position);
         DragEventArgs args = new DragEventArgs(this.trackedFinger, hitObject);
-        Debug.Log(hitObject);
+        //Debug.Log(hitObject);
         
         if(this.OnDrag != null)
         {
@@ -59,6 +59,26 @@ public class GestureManager : MonoBehaviour
         }
        
     }
+
+    private void EndDrag()
+    {
+        Vector2 position = this.trackedFinger.position;
+        GameObject hitObject = OnHitObject(position);
+        DragEventArgs args = new DragEventArgs(this.trackedFinger, hitObject);
+        //Debug.Log(hitObject);
+
+        if (hitObject != null)
+        {
+
+            IDraggable handler = hitObject.GetComponent<IDraggable>();
+            if (handler != null)
+            {
+                handler.OnRelease(args);
+            }
+
+        }
+    }
+
     private void CheckSwipe()
     {
         if (this.gestureTime <= this.swipeProperty.Time && Vector2.Distance(this.startPoint, this.endPoint) >= this.swipeProperty.MinDistance * Screen.dpi)
@@ -223,8 +243,7 @@ public class GestureManager : MonoBehaviour
                     this.endPoint = this.trackedFinger.position;
                     this.CheckTap();
                     this.CheckSwipe();
-                    
-
+                    this.EndDrag();
                     break;
 
                 default:

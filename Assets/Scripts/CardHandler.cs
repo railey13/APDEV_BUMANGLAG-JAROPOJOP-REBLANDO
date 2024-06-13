@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardHandler : MonoBehaviour, ISwipeable, IDraggable {
+public class CardHandler : MonoBehaviour, ISwipeable, IDraggable
+{
     // Start is called before the first frame update
 
     private Vector3 targetPosition = Vector3.zero;
@@ -14,10 +15,12 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable {
     bool IsRevealed = false;
     bool isRed = false;
 
-    public void OnDrag(DragEventArgs args) {
-
-        if (args.HitObject == this.gameObject) {
-
+    public void OnDrag(DragEventArgs args)
+    {
+        
+        if (args.HitObject == this.gameObject)
+        {
+            
             Vector2 position = args.Trackedfinger.position;
             Ray ray = Camera.main.ScreenPointToRay(position);
             Vector2 worldPosition = ray.GetPoint(10);
@@ -32,7 +35,8 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable {
         }
     }
 
-    public void OnRelease(DragEventArgs arg) {
+    public void OnRelease(DragEventArgs arg) 
+    {
         //zOffset
         Debug.Log("Released!");
         Vector3 zOffset = new Vector3(0, 0, +4.0f);
@@ -40,9 +44,11 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable {
         this.gameObject.transform.position += zOffset;
     }
 
-    private void MoveRight(SwipeEventArgs args) {
-        switch (args.Direction) {
-
+    private void MoveRight(SwipeEventArgs args)
+    {
+        switch (args.Direction)
+        {
+            
             case ESwipeDirection.RIGHT:
                 this.targetPosition = transformDock.position;
                 break;
@@ -51,14 +57,16 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable {
 
     }
 
+  
+    
 
+    public void OnSwipe(SwipeEventArgs args)
+    {
+        
+      
 
-
-    public void OnSwipe(SwipeEventArgs args) {
-
-
-
-        if (args.Direction == ESwipeDirection.RIGHT) {
+        if (args.Direction == ESwipeDirection.RIGHT)
+        {
             this.MoveRight(args);
         }
 
@@ -66,17 +74,20 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable {
     }
     // Start is called before the first frame update
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         //set the [targetPosition] ot the cube's current position.
         this.targetPosition = this.transform.position;
         //use update to slowly move it.
     }
-    void Start() {
+    void Start()
+    {
 
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         float speed = 10.0f * Time.deltaTime;
         this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, this.targetPosition, speed);
     }
