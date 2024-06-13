@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CardHandler : MonoBehaviour, ISwipeable, IDraggable
+public class CardHandler : MonoBehaviour, ISwipeable
 {
     // Start is called before the first frame update
 
@@ -21,34 +21,9 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable
     bool IsRevealed = false;
     bool isRed = false;
 
-    public void OnDrag(DragEventArgs args)
-    {
-        
-        if (args.HitObject == this.gameObject)
-        {
-            
-            Vector2 position = args.Trackedfinger.position;
-            Ray ray = Camera.main.ScreenPointToRay(position);
-            Vector2 worldPosition = ray.GetPoint(10);
+   
 
-            this.targetPosition = worldPosition;
-            this.transform.position = worldPosition;
-
-            //zOffset
-            Vector3 zOffset = new Vector3(0, 0, -4.0f);
-            this.targetPosition += zOffset;
-            this.gameObject.transform.position += zOffset;
-        }
-    }
-
-    public void OnRelease(DragEventArgs arg) 
-    {
-        //zOffset
-        Debug.Log("Released!");
-        Vector3 zOffset = new Vector3(0, 0, +4.0f);
-        this.targetPosition += zOffset;
-        this.gameObject.transform.position += zOffset;
-    }
+    
 
     private void ToDock(SwipeEventArgs args)
     {
@@ -152,14 +127,14 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable
     private void OnEnable()
     {
         //set the [targetPosition] ot the cube's current position.
-        this.targetPosition = this.transform.position;
+        //this.targetPosition = this.transform.position;
         //use update to slowly move it.
     }
 
     public void NameGetter(string name)
     {
         string cardName = name;
-        cardName = "H5";
+
         char nametest = cardName[0];
         switch (nametest)
         {
@@ -194,9 +169,11 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         float speed = 10.0f * Time.deltaTime;
-        this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, this.targetPosition, speed);
+        if (targetPosition != Vector3.zero) {
+            this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, this.targetPosition, speed);
+        }
     }
+       
 }
