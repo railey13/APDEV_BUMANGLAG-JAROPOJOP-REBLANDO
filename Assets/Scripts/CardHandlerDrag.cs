@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class CardHandler : MonoBehaviour, IDraggable
+public class CardHandlerDrag : MonoBehaviour, IDraggable
 {
     [SerializeField] private int SuitValue = 0;
     [SerializeField] private bool isRed = false;
@@ -22,7 +23,7 @@ public class CardHandler : MonoBehaviour, IDraggable
     // Update is called once per frame
     void Update()
     {
-        float speed = 1.0f * Time.deltaTime;
+        float speed = 3.0f * Time.deltaTime;
         this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, this.targetPosition, speed);
     }
 
@@ -37,7 +38,11 @@ public class CardHandler : MonoBehaviour, IDraggable
 
             this.targetPosition = worldPosition;
             this.transform.position = worldPosition;
-            this.transform.position += new Vector3(0, 0, -0.2f);
+
+            //zOffset
+            //Vector3 zOffset = new Vector3(0, 0, -4.0f);
+            //this.targetPosition += zOffset;
+            //this.gameObject.transform.position += zOffset;
         }
     }
 

@@ -8,8 +8,10 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable
 
     private Vector3 targetPosition = Vector3.zero;
     [SerializeField] private Transform transformDock;
+
     int suitValue = 0;
     int suitType = 0;
+
     bool IsRevealed = false;
     bool isRed = false;
 
@@ -25,8 +27,23 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable
 
             this.targetPosition = worldPosition;
             this.transform.position = worldPosition;
+
+            //zOffset
+            Vector3 zOffset = new Vector3(0, 0, -4.0f);
+            this.targetPosition += zOffset;
+            this.gameObject.transform.position += zOffset;
         }
     }
+
+    public void OnRelease(DragEventArgs arg) 
+    {
+        //zOffset
+        Debug.Log("Released!");
+        Vector3 zOffset = new Vector3(0, 0, +4.0f);
+        this.targetPosition += zOffset;
+        this.gameObject.transform.position += zOffset;
+    }
+
     private void MoveRight(SwipeEventArgs args)
     {
         switch (args.Direction)
