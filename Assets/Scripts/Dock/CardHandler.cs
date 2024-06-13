@@ -12,8 +12,8 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable
     private GameObject clubDock;
     private GameObject spadeDock;
 
-    public int suitValue = 0;
-    public int suitType = 0;
+    public int suitValue = 1;
+    public int suitType = 1;
 
     bool IsRevealed = false;
     bool isRed = false;
@@ -53,27 +53,28 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable
         switch (this.suitType)
         {
             
-            case 0: // heart
-               
+            case 1: // heart
+                if (CheckDock(this.suitType))
+                {
                     this.targetPosition = heartDock.transform.position;
-                
-                
+                }
+
                 break;
-            case 1: // diamond
+            case 2: // diamond
                 if (CheckDock(this.suitType))
                 {
                     this.targetPosition = diamondDock.transform.position;
                 }
                
                 break;
-            case 2:// club
+            case 3:// club
                 if (CheckDock(this.suitType))
                 {
                     this.targetPosition = clubDock.transform.position;
                 }
                 
                 break;
-            case 3: // spade
+            case 4: // spade
                 if (CheckDock(this.suitType))
                 {
                     this.targetPosition = spadeDock.transform.position;
@@ -89,16 +90,16 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable
     {
         DockHandler docked;
         switch (dock) {
-            case 0:
+            case 1:
                 docked = heartDock.GetComponent<DockHandler>();
                 break;
-            case 1:
+            case 2:
                 docked = diamondDock.GetComponent<DockHandler>();
                 break;
-            case 2:
+            case 3:
                 docked = clubDock.GetComponent<DockHandler>();
                 break;
-            case 3:
+            case 4:
                 docked = diamondDock.GetComponent<DockHandler>();
                 break;
             default:
@@ -108,16 +109,22 @@ public class CardHandler : MonoBehaviour, ISwipeable, IDraggable
         }
         int end = docked.DockedCards.Count ;
         
-        if (end == 0 && suitValue == 0)
+        if (end == 0 && suitValue == 1)
         {
             Debug.Log("its an ace");
+            docked.Adding(this.suitValue);
             return true;
         }
-        else if(this.suitValue == docked.DockedCards[end-1] + 1)
+        else if(end != 0)
         {
-            Debug.Log("its the next number");
-            return true;
+            if (this.suitValue == docked.DockedCards[end - 1] + 1)
+            {
+                Debug.Log("its the next number");
+                docked.Adding(this.suitValue);
+                return true;
+            }
         }
+        
         Debug.Log("nope");
         return false;
     }
