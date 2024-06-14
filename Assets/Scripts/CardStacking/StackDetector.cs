@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class StackDetector : MonoBehaviour
 {
+    [SerializeField] private bool CanDetect = false;
     private IStackable parentStackableCard;
-    private bool CanDetect = false;
     //private StackingCards parentCard;
 
     // Start is called before the first frame update
