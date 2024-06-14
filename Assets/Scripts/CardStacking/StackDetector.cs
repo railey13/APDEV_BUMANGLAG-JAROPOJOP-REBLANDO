@@ -5,6 +5,7 @@ using UnityEngine;
 public class StackDetector : MonoBehaviour
 {
     private IStackable parentStackableCard;
+    private bool CanDetect = false;
     //private StackingCards parentCard;
 
     // Start is called before the first frame update
@@ -24,7 +25,7 @@ public class StackDetector : MonoBehaviour
     {
         IStackable handler = collision.gameObject.GetComponent<IStackable>();
         StackingCards stackHandler = collision.gameObject.GetComponent<StackingCards>();
-        if (handler != null)
+        if (handler != null && this.CanDetect)
         {
             if (parentStackableCard.CanStack(collision.gameObject))
             {
@@ -36,6 +37,8 @@ public class StackDetector : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
+        if (collision.gameObject.name == "InDeckChecker") this.CanDetect = true;
+
         IStackable handler = collision.gameObject.GetComponent<IStackable>();
         StackingCards stackHandler = collision.gameObject.GetComponent<StackingCards>();
         if (handler != null)
