@@ -37,7 +37,10 @@ public class StackDetector : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.name == "InDeckChecker") this.CanDetect = true;
+        if (collision.gameObject.name == "InDeckChecker")
+        {
+            this.CanDetect = true;
+        }
 
         IStackable handler = collision.gameObject.GetComponent<IStackable>();
         StackingCards stackHandler = collision.gameObject.GetComponent<StackingCards>();
