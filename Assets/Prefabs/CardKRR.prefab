@@ -107,9 +107,11 @@ GameObject:
   - component: {fileID: 9222616701044184005}
   - component: {fileID: 3210449165471833415}
   - component: {fileID: 1300746250875556066}
-  - component: {fileID: 1020522588786305304}
   - component: {fileID: 558613824510981797}
+  - component: {fileID: 4864183413994651795}
+  - component: {fileID: 1020522588786305304}
   - component: {fileID: 5704009742604558303}
+  - component: {fileID: 7950971371006589788}
   m_Layer: 0
   m_Name: CardKRR
   m_TagString: Untagged
@@ -233,18 +235,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1020522588786305304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2021904654833441381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fa5919656421fb45b19ba5cc08b6ff7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &558613824510981797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,7 +247,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97fd089d41a6e8b4ca9134765fd78e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformDock: {fileID: 0}
+  suitValue: 1
+  suitType: 1
+--- !u!114 &4864183413994651795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021904654833441381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59dc8e670934b51449295eb70cd6875a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1020522588786305304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021904654833441381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa5919656421fb45b19ba5cc08b6ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5704009742604558303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,3 +290,16 @@ MonoBehaviour:
     _isRed: 0
   isConnected: 0
   bedCard: {fileID: 0}
+--- !u!114 &7950971371006589788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021904654833441381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80ff03a0cb42c24da82da86d0117caa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformDock: {fileID: 0}

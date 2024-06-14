@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class CardHandlerDrag : MonoBehaviour, IDraggable
+public class CardHandlerDragV1 : MonoBehaviour, IDraggable
 {
     [SerializeField] private int SuitValue = 0;
     [SerializeField] private bool isRed = false;

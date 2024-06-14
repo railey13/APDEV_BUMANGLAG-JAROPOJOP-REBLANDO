@@ -23,7 +23,7 @@ public class StackingCards : MonoBehaviour, IStackable
     {
         if (this.isConnected && bedCard != null)
         {
-            this.gameObject.transform.position = bedCard.transform.position + Vector3.down * 2 + Vector3.back * 0.1f;
+            this.gameObject.transform.position = bedCard.transform.position + Vector3.down * 0.5f + Vector3.back * 0.1f;
         }
     }
 
@@ -51,10 +51,7 @@ public class StackingCards : MonoBehaviour, IStackable
                 //Debug.Log("Can stack!");
                 isStackable = true;
             }
-            else
-            {
-                //Debug.Log("Cannot stack!");
-            }
+            else if (this.cardValue.Value == 13 && collidedCardValue.Value == 14) isStackable = true;
         }
 
         return isStackable;
