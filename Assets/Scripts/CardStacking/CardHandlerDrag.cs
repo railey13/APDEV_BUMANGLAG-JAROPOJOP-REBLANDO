@@ -42,7 +42,7 @@ public class CardHandlerDrag : MonoBehaviour, IDraggable
     private void OnEnable()
     {
         //set the [targetPosition] ot the cube's current position.
-        this.targetPosition = this.transform.position;
+        //this.targetPosition = this.transform.position;
         //use update to slowly move it.
     }
     void Start()
@@ -54,6 +54,8 @@ public class CardHandlerDrag : MonoBehaviour, IDraggable
     void Update()
     {
         float speed = 10.0f * Time.deltaTime;
-        this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, this.targetPosition, speed);
+        if (targetPosition != Vector3.zero) {
+            this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, this.targetPosition, speed);
+        }
     }
 }

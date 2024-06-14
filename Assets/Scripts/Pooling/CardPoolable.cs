@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,10 @@ public class CardPoolable : APoolable{
     private Vector3 originPos;
 
     private float order;
+
+    public float Order {
+        get { return order; }
+    }
     private void Awake() {
         this.originPos = this.transform.position;
     }
@@ -19,7 +24,7 @@ public class CardPoolable : APoolable{
         this.cardType = this.cardList.CardSelector();
 
         MeshRenderer card = GetComponent<MeshRenderer>();
-
+        StackingCards cardList = GetComponent<StackingCards>();
         if (card != null) {
             card.material = this.cardType;
             this.CardName = card.material.name;
@@ -28,6 +33,10 @@ public class CardPoolable : APoolable{
 
             this.CardName = words[0];
             Debug.Log(words[0]);
+
+            string cardName = name;
+
+
         }
     }
 
@@ -43,8 +52,6 @@ public class CardPoolable : APoolable{
         if (cardHandler != null){
             cardHandler.NameGetter(this.CardName);
         }
-
-        
     }
     public override void Release() {
 
