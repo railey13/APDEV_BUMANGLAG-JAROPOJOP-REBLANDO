@@ -6,16 +6,20 @@ public class DirectTapReciever : MonoBehaviour, ITappable
 {
     [SerializeField] private GameObjectPool CardPool;
 
-    void Start() {
+    void Start() 
+    {
         this.CardPool.Initialize();
     }
-    private void RequestPoolable() {
+    private void RequestPoolable() 
+    {
  
-        if (this.CardPool.HasObjectAvailable(1)) {
+        if (this.CardPool.HasObjectAvailable(1)) 
+        {
             this.CardPool.RequestPoolable();
         }
     }
-    public void OnTap(TapEventArgs args) {
+    public void OnTap(TapEventArgs args) 
+    {
         this.RequestPoolable();
     }
 }

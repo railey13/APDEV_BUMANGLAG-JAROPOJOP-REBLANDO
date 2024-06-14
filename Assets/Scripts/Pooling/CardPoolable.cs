@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardPoolable : APoolable{
+public class CardPoolable : APoolable
+{
     [SerializeField] private CardList cardList;
 
     [SerializeField] private string CardName;
@@ -18,13 +19,16 @@ public class CardPoolable : APoolable{
 
     private bool colorType = false;
 
-    public float Order {
+    public float Order 
+    {
         get { return order; }
     }
-    private void Awake() {
+    private void Awake() 
+    {
         this.originPos = this.transform.position;
     }
-    public void SetCard() {
+    public void SetCard() 
+    {
         this.order = this.cardList.Order() * 0.01f;
         this.cardType = this.cardList.CardSelector();
 
@@ -32,7 +36,8 @@ public class CardPoolable : APoolable{
         StackingCards cardStack = GetComponent<StackingCards>();
         CardHandler cardHandler = GetComponent<CardHandler>();
 
-        if (card != null) {
+        if (card != null) 
+        {
             card.material = this.cardType;
             this.CardName = card.material.name;
 
@@ -44,7 +49,8 @@ public class CardPoolable : APoolable{
             string cardName = this.CardName;
 
             char nametest = cardName[0];
-            switch (nametest) {
+            switch (nametest) 
+            {
                 case 'H':
                     this.suitType = 1;
                     this.colorType = true;
@@ -70,14 +76,22 @@ public class CardPoolable : APoolable{
         }
     }
 
-    public override void Initialize() {
+    public override void Initialize() 
+    {
 
     }
-    public override void OnActivate() {
+    public override void OnActivate() 
+    {
         this.SetCard();
         this.transform.localPosition = new Vector3(this.originPos.x, this.originPos.y, this.originPos.z - this.order);
     }
-    public override void Release() {
+    public override void Release() 
+    {
 
     }
 }
+
+
+
+
+
