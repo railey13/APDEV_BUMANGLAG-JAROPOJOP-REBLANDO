@@ -17,7 +17,7 @@ public class CardHandler : MonoBehaviour, ISwipeable
 
     public int suitValue = 1;
     public int suitType = 1;
-
+    private int end = 0;
     bool IsRevealed = false;
     bool isRed = false;
 
@@ -34,28 +34,28 @@ public class CardHandler : MonoBehaviour, ISwipeable
             case 1: // heart
                 if (CheckDock(this.suitType))
                 {
-                    this.targetPosition = heartDock.transform.position;
+                    this.targetPosition = this.heartDock.transform.position - new Vector3(0.0f,0.0f, end * 0.01f);
                 }
 
                 break;
             case 2: // diamond
                 if (CheckDock(this.suitType))
                 {
-                    this.targetPosition = diamondDock.transform.position;
+                    this.targetPosition = this.diamondDock.transform.position - new Vector3(0.0f, 0.0f, end * 0.01f);
                 }
                
                 break;
             case 3:// club
                 if (CheckDock(this.suitType))
                 {
-                    this.targetPosition = clubDock.transform.position;
+                    this.targetPosition = this.clubDock.transform.position - new Vector3(0.0f, 0.0f, end * 0.01f);
                 }
                 
                 break;
             case 4: // spade
                 if (CheckDock(this.suitType))
                 {
-                    this.targetPosition = spadeDock.transform.position;
+                    this.targetPosition = this.spadeDock.transform.position - new Vector3(0.0f, 0.0f, end * 0.01f);
                 }
                
                 break;
@@ -67,7 +67,8 @@ public class CardHandler : MonoBehaviour, ISwipeable
     private bool CheckDock(int dock)
     {
         DockHandler docked;
-        switch (dock) {
+        switch (dock) 
+        {
             case 1:
                 docked = this.heartDock.GetComponent<DockHandler>();
                 break;
@@ -85,7 +86,7 @@ public class CardHandler : MonoBehaviour, ISwipeable
                 break;
 
         }
-        int end = docked.DockedCards.Count;
+        end = docked.DockedCards.Count;
         
         if (end == 0 && suitValue == 1)
         {
@@ -150,10 +151,16 @@ public class CardHandler : MonoBehaviour, ISwipeable
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update() 
+    {
         float speed = 10.0f * Time.deltaTime;
-        if (targetPosition != Vector3.zero) {
+        if (this.targetPosition != Vector3.zero) 
+        {
             this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, this.targetPosition, speed);
+        }
+        if(this.targetPosition == this.transform.position)
+        {
+            this.targetPosition = Vector3.zero;
         }
     }
        
