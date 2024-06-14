@@ -27,6 +27,12 @@ public class StackingCards : MonoBehaviour, IStackable
         }
     }
 
+    public void SetColor_Value(bool color, int value) {
+
+        this.cardValue.IsRed = color;
+        this.cardValue.Value = value;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         

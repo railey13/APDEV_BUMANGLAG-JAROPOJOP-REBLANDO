@@ -13,6 +13,11 @@ public class CardPoolable : APoolable{
 
     private float order;
 
+    private int suitType = 0;
+    private int valueType = 0;
+
+    private bool colorType = false;
+
     public float Order {
         get { return order; }
     }
@@ -24,7 +29,9 @@ public class CardPoolable : APoolable{
         this.cardType = this.cardList.CardSelector();
 
         MeshRenderer card = GetComponent<MeshRenderer>();
-        StackingCards cardList = GetComponent<StackingCards>();
+        StackingCards cardStack = GetComponent<StackingCards>();
+        CardHandler cardHandler = GetComponent<CardHandler>();
+
         if (card != null) {
             card.material = this.cardType;
             this.CardName = card.material.name;
@@ -34,9 +41,32 @@ public class CardPoolable : APoolable{
             this.CardName = words[0];
             Debug.Log(words[0]);
 
-            string cardName = name;
+            string cardName = this.CardName;
 
+            char nametest = cardName[0];
+            switch (nametest) {
+                case 'H':
+                    this.suitType = 1;
+                    this.colorType = true;
+                    break;
+                case 'D':
+                    this.suitType = 2;
+                    this.colorType = true;
+                    break;
+                case 'C':
+                    this.suitType = 3;
+                    this.colorType = false;
+                    break;
+                case 'S':
+                    this.suitType = 4;
+                    this.colorType = false;
+                    break;
+            }
+            string valTest = cardName.Substring(1);
+            this.valueType = Convert.ToInt32(valTest);
 
+            cardHandler.NameGetter(this.valueType, this.suitType);
+            cardStack.SetColor_Value(this.colorType, this.valueType);
         }
     }
 
@@ -46,12 +76,6 @@ public class CardPoolable : APoolable{
     public override void OnActivate() {
         this.SetCard();
         this.transform.localPosition = new Vector3(this.originPos.x, this.originPos.y, this.originPos.z - this.order);
-
-        CardHandler cardHandler = GetComponent<CardHandler>();
-
-        if (cardHandler != null){
-            cardHandler.NameGetter(this.CardName);
-        }
     }
     public override void Release() {
 

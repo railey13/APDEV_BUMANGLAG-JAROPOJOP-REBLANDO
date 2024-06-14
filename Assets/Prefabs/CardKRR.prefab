@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 1020522588786305304}
   - component: {fileID: 5704009742604558303}
   - component: {fileID: 7950971371006589788}
+  - component: {fileID: 444866060402333313}
   m_Layer: 0
   m_Name: CardKRR
   m_TagString: Untagged
@@ -127,9 +128,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021904654833441381}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.18000002, y: 0.27658537, z: 0.27658537}
+  m_LocalScale: {x: 0.34198028, y: 0.33930296, z: 0.3955524}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 799874853312059847}
@@ -165,7 +166,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 501929500cd52074086f1ebbb12e38fe, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -233,7 +234,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &558613824510981797
 MonoBehaviour:
@@ -303,3 +304,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80ff03a0cb42c24da82da86d0117caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &444866060402333313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021904654833441381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b1ef7adfe431744883a594153eb1f4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardList: {fileID: 0}
+  CardName: 

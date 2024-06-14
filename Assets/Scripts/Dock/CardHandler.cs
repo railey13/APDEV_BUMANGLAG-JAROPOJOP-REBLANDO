@@ -132,29 +132,10 @@ public class CardHandler : MonoBehaviour, ISwipeable
         //use update to slowly move it.
     }
 
-    public void NameGetter(string name)
+    public void NameGetter(int value, int type)
     {
-        string cardName = name;
-
-        char nametest = cardName[0];
-        switch (nametest)
-        {
-            case 'H':
-                suitType = 1;
-                break;
-            case 'D':
-                suitType = 2;
-                break;
-            case 'C':
-                suitType = 3;
-                break;
-            case 'S':
-                suitType = 4;
-                break;
-        }
-        string valTest = cardName.Substring(1);
-        suitValue = Convert.ToInt32(valTest);
-       
+        this.suitValue = value;
+        this.suitType = type;
     }
 
 
