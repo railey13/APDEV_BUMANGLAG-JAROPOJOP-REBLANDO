@@ -28,14 +28,7 @@ public class CardHandlerDrag : MonoBehaviour, IDraggable
         }
     }
 
-    public void OnRelease(DragEventArgs arg) 
-    {
-        //zOffset
-        Debug.Log("Released!");
-        Vector3 zOffset = new Vector3(0, 0, +4.0f);
-        this.targetPosition += zOffset;
-        //this.gameObject.transform.position += zOffset;
-    }
+   
 
     // Start is called before the first frame update
 
@@ -56,6 +49,10 @@ public class CardHandlerDrag : MonoBehaviour, IDraggable
         float speed = 10.0f * Time.deltaTime;
         if (targetPosition != Vector3.zero) {
             this.gameObject.transform.position = Vector3.MoveTowards(this.transform.position, this.targetPosition, speed);
+        }
+        if(targetPosition == this.transform.position)
+        {
+            this.targetPosition = Vector3.zero;
         }
     }
 }

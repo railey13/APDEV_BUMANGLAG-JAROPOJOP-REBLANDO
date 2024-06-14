@@ -69,16 +69,16 @@ public class CardHandler : MonoBehaviour, ISwipeable
         DockHandler docked;
         switch (dock) {
             case 1:
-                docked = heartDock.GetComponent<DockHandler>();
+                docked = this.heartDock.GetComponent<DockHandler>();
                 break;
             case 2:
-                docked = diamondDock.GetComponent<DockHandler>();
+                docked = this.diamondDock.GetComponent<DockHandler>();
                 break;
             case 3:
-                docked = clubDock.GetComponent<DockHandler>();
+                docked = this.clubDock.GetComponent<DockHandler>();
                 break;
             case 4:
-                docked = spadeDock.GetComponent<DockHandler>();
+                docked = this.spadeDock.GetComponent<DockHandler>();
                 break;
             default:
                 docked = null;
@@ -141,10 +141,10 @@ public class CardHandler : MonoBehaviour, ISwipeable
 
     void Start()
     {
-        heartDock = GameObject.Find("HeartDock");
-        diamondDock = GameObject.Find("DiamondDock");
-        clubDock = GameObject.Find("ClubDock");
-        spadeDock = GameObject.Find("SpadeDock");
+        this.heartDock = GameObject.Find("HeartDock");
+        this.diamondDock = GameObject.Find("DiamondDock");
+        this.clubDock = GameObject.Find("ClubDock");
+        this.spadeDock = GameObject.Find("SpadeDock");
      
         
     }

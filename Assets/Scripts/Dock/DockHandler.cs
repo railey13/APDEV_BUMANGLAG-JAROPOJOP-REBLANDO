@@ -9,12 +9,12 @@ public class DockHandler : MonoBehaviour
 
     public List<int> DockedCards
     {
-        get { return dockedCards; }
+        get { return this.dockedCards; }
     }
 
     public  void Adding(int card)
     {
-        dockedCards.Add(card);
+        this.dockedCards.Add(card);
     }
 
     void Start()
