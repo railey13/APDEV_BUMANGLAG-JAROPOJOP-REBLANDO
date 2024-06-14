@@ -9,6 +9,11 @@ public class StackingCards : MonoBehaviour, IStackable
     [SerializeField] public CardValue cardValue;
     [SerializeField] private bool isConnected = false;
 
+    public bool IsConnected
+    {
+        set { this.isConnected = value; }
+    }
+
     [SerializeField] private GameObject bedCard;
 
     // Start is called before the first frame update
@@ -42,6 +47,7 @@ public class StackingCards : MonoBehaviour, IStackable
     {
         this.isConnected = true;
         this.bedCard = bed;
+        
     }
 
     public bool CanStack(GameObject bed)

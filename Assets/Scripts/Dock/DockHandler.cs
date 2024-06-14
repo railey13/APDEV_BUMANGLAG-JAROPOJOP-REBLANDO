@@ -17,6 +17,11 @@ public class DockHandler : MonoBehaviour
         this.dockedCards.Add(card);
     }
 
+    public void Removal(int card)
+    {
+        this.dockedCards.Remove(card);
+
+    }
     void Start()
     {
         

@@ -91,6 +91,9 @@ public class CardHandler : MonoBehaviour, ISwipeable
         if (end == 0 && suitValue == 1)
         {
             Debug.Log("its an ace");
+            StackingCards stack = this.GetComponent<StackingCards>();
+            stack.IsConnected = false;
+            this.transform.position += new Vector3(0.0f, 0.0f, 0.5f);
             docked.Adding(this.suitValue);
             return true;
         }
@@ -99,6 +102,9 @@ public class CardHandler : MonoBehaviour, ISwipeable
             if (this.suitValue == docked.DockedCards[end - 1] + 1)
             {
                 Debug.Log("its the next number");
+                StackingCards stack = this.GetComponent<StackingCards>();
+                stack.IsConnected = false;
+                this.transform.position += new Vector3(0.0f, 0.0f, 0.5f);
                 docked.Adding(this.suitValue);
                 return true;
             }
