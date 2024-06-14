@@ -28,7 +28,29 @@ public class StackDetector : MonoBehaviour
         if (handler != null && this.CanDetect)
         {
             if (parentStackableCard.CanStack(collision.gameObject))
-            {
+            {   
+                CardHandler card = this.transform.parent.GetComponent<CardHandler>();
+                DockHandler dock = null;
+                switch (card.suitType)
+                {
+                    case 1:
+                        dock = GameObject.Find("HeartDock").GetComponent<DockHandler>();
+                        dock.Removal(card.suitValue);
+                        break;
+                    case 2:
+                        dock = GameObject.Find("DiamondDock").GetComponent<DockHandler>();
+                        dock.Removal(card.suitValue);
+                        break;
+                    case 3:
+                        dock = GameObject.Find("ClubDock").GetComponent<DockHandler>();
+                        dock.Removal(card.suitValue);
+                        break;
+                    case 4:
+                        dock = GameObject.Find("SpadeDock").GetComponent<DockHandler>();
+                        dock.Removal(card.suitValue);
+                        break;
+
+                }
                 this.parentStackableCard.OnStack(collision.gameObject);
                 stackHandler.cardValue.HasChild = true;
             }
