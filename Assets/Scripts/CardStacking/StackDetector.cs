@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class StackDetector : MonoBehaviour
 {
-    private IStackable parentCard;
+    private IStackable parentStackableCard;
+    //private StackingCards parentCard;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.parentCard = this.transform.parent.GetComponent<IStackable>();
+        this.parentStackableCard = this.transform.parent.GetComponent<IStackable>();
+        //this.parentCard = this.transform.parent.GetComponent<StackingCards>();
     }
 
     // Update is called once per frame
@@ -21,12 +23,24 @@ public class StackDetector : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         IStackable handler = collision.gameObject.GetComponent<IStackable>();
+        StackingCards stackHandler = collision.gameObject.GetComponent<StackingCards>();
         if (handler != null)
         {
-            if (parentCard.CanStack(collision.gameObject))
+            if (parentStackableCard.CanStack(collision.gameObject))
             {
-                this.parentCard.OnStack(collision.gameObject); 
+                this.parentStackableCard.OnStack(collision.gameObject);
+                stackHandler.cardValue.HasChild = true;
             }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        IStackable handler = collision.gameObject.GetComponent<IStackable>();
+        StackingCards stackHandler = collision.gameObject.GetComponent<StackingCards>();
+        if (handler != null)
+        {
+            stackHandler.cardValue.HasChild = false;
         }
     }
 }

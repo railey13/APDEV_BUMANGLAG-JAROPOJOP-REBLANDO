@@ -53,8 +53,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 14.829266, z: 1}
-  m_Center: {x: 0, y: -7.8197517, z: -2.0183352e-14}
+  m_Size: {x: 1, y: 15.279169, z: 1}
+  m_Center: {x: -0, y: -7.5947995, z: -1.6646644e-14}
 --- !u!54 &6964181850689841456
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -288,6 +288,7 @@ MonoBehaviour:
   cardValue:
     _value: 0
     _isRed: 0
+    _hasChild: 0
   isConnected: 0
   bedCard: {fileID: 0}
 --- !u!114 &7950971371006589788
@@ -302,4 +303,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80ff03a0cb42c24da82da86d0117caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformDock: {fileID: 0}

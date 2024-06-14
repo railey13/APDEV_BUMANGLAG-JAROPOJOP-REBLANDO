@@ -14,7 +14,7 @@ public class StackingCards : MonoBehaviour, IStackable
     // Start is called before the first frame update
     void Start()
     {
-
+        this.cardValue.HasChild = false;
         //Debug.Log(this.name + " is Red? " + this.cardValue.IsRed);
     }
 
@@ -52,6 +52,8 @@ public class StackingCards : MonoBehaviour, IStackable
                 isStackable = true;
             }
             else if (this.cardValue.Value == 13 && collidedCardValue.Value == 14) isStackable = true;
+
+            if (collidedCardValue.HasChild) isStackable = false;
         }
 
         return isStackable;

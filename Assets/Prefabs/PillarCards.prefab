@@ -106,7 +106,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &1640846105692013273
@@ -124,6 +124,7 @@ MonoBehaviour:
   cardValue:
     _value: 14
     _isRed: 0
+    _hasChild: 0
   isConnected: 0
   bedCard: {fileID: 0}
 --- !u!1 &1648727972604852948
@@ -232,7 +233,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &5281653715444322731
@@ -250,6 +251,7 @@ MonoBehaviour:
   cardValue:
     _value: 14
     _isRed: 0
+    _hasChild: 0
   isConnected: 0
   bedCard: {fileID: 0}
 --- !u!1 &2439566947366438116
@@ -358,7 +360,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &1317089678987867694
@@ -376,6 +378,7 @@ MonoBehaviour:
   cardValue:
     _value: 14
     _isRed: 0
+    _hasChild: 0
   isConnected: 0
   bedCard: {fileID: 0}
 --- !u!1 &2745914541514503524
@@ -484,7 +487,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &9222581591038146409
@@ -502,6 +505,7 @@ MonoBehaviour:
   cardValue:
     _value: 14
     _isRed: 0
+    _hasChild: 0
   isConnected: 0
   bedCard: {fileID: 0}
 --- !u!1 &4075207582174237118
@@ -610,7 +614,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &6012955300528813343
@@ -628,6 +632,7 @@ MonoBehaviour:
   cardValue:
     _value: 14
     _isRed: 0
+    _hasChild: 0
   isConnected: 0
   bedCard: {fileID: 0}
 --- !u!1 &5617714373719251429
@@ -736,7 +741,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &8733388935821805143
@@ -754,6 +759,7 @@ MonoBehaviour:
   cardValue:
     _value: 14
     _isRed: 0
+    _hasChild: 0
   isConnected: 0
   bedCard: {fileID: 0}
 --- !u!1 &7661165177663234936
@@ -900,7 +906,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &5183156068056563390
@@ -918,5 +924,6 @@ MonoBehaviour:
   cardValue:
     _value: 14
     _isRed: 0
+    _hasChild: 0
   isConnected: 0
   bedCard: {fileID: 0}
